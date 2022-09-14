@@ -1,8 +1,9 @@
 import React, { useEffect, useState, useRef } from 'react';
 import * as S from './NavContantStyle';
+import Button from '../../Button/Button';
 import axios from 'axios';
 
-const NavContent = ({ isContent, setIsContent }) => {
+const NavContent = ({ isContent, setIsContent, onChangeTab }) => {
   const [navContent, setNavContent] = useState([]);
 
   const contentRef = useRef();
@@ -25,9 +26,26 @@ const NavContent = ({ isContent, setIsContent }) => {
   }, []);
 
   return (
-    <S.ContentContainer ref={el => (contentRef.current = el)}>
+    <S.ContentContainer
+      ref={el => (contentRef.current = el)}
+      isContent={isContent}
+    >
+      {isContent && (
+        <Button
+          width="50px"
+          size="small"
+          onClick={() => setIsContent(iscontent => !iscontent)}
+        >
+          x
+        </Button>
+      )}
       {navContent.map(contents => (
-        <S.NavContent key={contents.id}>{contents.content}</S.NavContent>
+        <S.NavContent
+          key={contents.id}
+          onClick={() => onChangeTab(contents.Link)}
+        >
+          {contents.content}
+        </S.NavContent>
       ))}
     </S.ContentContainer>
   );
