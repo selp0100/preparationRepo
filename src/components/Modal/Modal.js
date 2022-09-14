@@ -6,7 +6,7 @@ import ModalContainer from './ModalContainer';
 const Modal = ({ childeren, onClose, propsFunction, isCancel }) => {
   const ousideClose = e => {
     if (e.target === e.currentTarget) {
-      onClose(); // 외부 클릭시 닫히게 하는 코드
+      onClose();
     }
   };
 
@@ -15,15 +15,7 @@ const Modal = ({ childeren, onClose, propsFunction, isCancel }) => {
   useEffect(() => {
     document.body.style = `overflow: hidden`;
     return () => (document.body.style = `overflow: auto`);
-    //모달이 켜졌을시 스크롤 금지
   }, []);
-
-  /*
-  childeren : 보여줄 내용물
-  onClose : 부모에서 모달창을 끄고 닫을수 있는 기능
-  propsFunction : API 통신을 위한 함수 
-  isCancel : boolean 값 을 받아 닫기버튼을 보여줄것인지 안보여줄것인지
-  */
 
   return (
     <ModalContainer>
@@ -43,9 +35,6 @@ const Modal = ({ childeren, onClose, propsFunction, isCancel }) => {
               </Button>
             )}
             <Button
-              /*propsFunction가없으면 팝업이닫히고
-              있으면 propsFunction으로 내려준 함수를 실행시키고 함수를 닫는 onClick 이벤트
-              */
               onClick={() => {
                 if (!propsFunction) {
                   return closeModal();
