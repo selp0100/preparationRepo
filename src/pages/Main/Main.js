@@ -32,7 +32,6 @@ const Main = () => {
     <>
       <Nav onChangeTab={onChangeTab} />
       {getSelectTab()}
-      zzz
     </>
   );
 };

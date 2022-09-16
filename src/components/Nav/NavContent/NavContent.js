@@ -42,7 +42,10 @@ const NavContent = ({ isContent, setIsContent, onChangeTab }) => {
       {navContent.map(contents => (
         <S.NavContent
           key={contents.id}
-          onClick={() => onChangeTab(contents.Link)}
+          onClick={() => {
+            onChangeTab(contents.Link);
+            setIsContent(isContent => !isContent);
+          }}
         >
           {contents.content}
         </S.NavContent>

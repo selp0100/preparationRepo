@@ -1,13 +1,13 @@
 [
   {
     "id":1,
-    "content":"ReactHook",
+    "content":"UseContext",
     "Link":"ContextPage"
   },
   {
     "id":2,
     "content":"ReCoil",
-    "Link":"/ReCoil"
+    "Link":"Recoil"
   }
   
 ]
