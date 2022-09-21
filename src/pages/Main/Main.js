@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Nav from '../../components/Nav/Nav';
 import ContextPage from '../Context/ContextPage';
 import FirstPage from '../FirstPage/FirstPage';
+import RecoilPage from '../Recoil/RecoilPage';
 
 const Main = () => {
   const [tab, setTab] = useState('FirstPage');
@@ -19,6 +20,10 @@ const Main = () => {
 
       case 'ContextPage':
         tabPage = <ContextPage />;
+        break;
+
+      case 'RecoilPage':
+        tabPage = <RecoilPage />;
         break;
 
       default:
